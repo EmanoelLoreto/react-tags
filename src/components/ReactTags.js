@@ -72,6 +72,7 @@ class ReactTags extends Component {
     editable: PropTypes.bool,
     clearAll: PropTypes.bool,
     onClearAll: PropTypes.func,
+    type: PropTypes.string,
   };
 
   static defaultProps = {
@@ -96,6 +97,7 @@ class ReactTags extends Component {
     editable: false,
     clearAll: false,
     handleClearAll: noop,
+    type: 'text',
   };
 
   constructor(props) {
@@ -493,6 +495,7 @@ class ReactTags extends Component {
       inputProps,
       clearAll,
       tags,
+      type,
     } = this.props;
 
     const position = !inline
@@ -507,7 +510,7 @@ class ReactTags extends Component {
             this.textInput = input;
           }}
           className={classNames.tagInputField}
-          type="text"
+          type={type}
           placeholder={placeholder}
           aria-label={placeholder}
           onFocus={this.handleFocus}
